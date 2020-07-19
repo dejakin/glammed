@@ -57,7 +57,7 @@ router.post('/', [
 
         // If error exists, control will be passed to catch block along with the thrown error object
         jwt.sign(payload, config.get('jwtSecret'), {
-            expiresIn: 360000
+            expiresIn: 36000000
         }, (err, token) => {
             if(err) throw err;
             res.json({ token });
