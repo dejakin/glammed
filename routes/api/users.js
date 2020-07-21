@@ -12,6 +12,7 @@ const User = require('../../models/User');
 router.post('/', [
     check('forename', 'Forename is required').not().isEmpty(),
     check('surname', 'Surname is required').not().isEmpty(),
+    check('username', 'Username is required').not().isEmpty(),
     check('email', 'Please provide a valid email address').isEmail(),
     check('password', 'Please enter a password with 8 or more characters').isLength({ min: 8 })
 ], async (req, res) => {
@@ -20,17 +21,26 @@ router.post('/', [
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { forename, surname, email, password } = req.body;
+    const { forename, surname, email, password, username } = req.body;
 
     try {
-        let user = await User.findOne({ email });
+        const emailFound = await User.findOne({ email });
+        const usernameFound = await User.findOne({ username }); 
 
-        /* If conditional is true, function will finish as a result 
+        /* If any conditional is true, function will finish as a result 
         of return statement within block. Only 1 res.send will run */
-        if(user) {
-            return res.status(400).json({ errors: [{ msg: 'User already exists'}] });
+        if(emailFound && usernameFound) {
+            return res
+            .status(400)
+            .json({ errors: [{ msg: 'A user with this email already exists'}, { msg: 'A user with this username already exists'}] });
         }
-
+        if(emailFound) {
+            return res.status(400).json({ errors: [{ msg: 'A user with this email address already exists'}] });
+        }
+        if(usernameFound) {
+            return res.status(400).json({ errors: [{ msg: 'A user with this username already exists'}] });
+        }
+ 
         const avatar = gravatar.url(email, {
             s: '200',
             r: 'pg',
@@ -40,6 +50,7 @@ router.post('/', [
         user = new User({
             forename,
             surname,
+            username,
             email,
             avatar,
             password
