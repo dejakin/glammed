@@ -6,30 +6,30 @@ const ProfileSchema = new mongoose.Schema({
         ref: 'user'
     },
     bio: {
-        type: string
+        type: String
     },
     location: {
-        type: string
+        type: String
     },
     service: {
         type: [String],
         required: true
     },
     email: {
-        type: string
+        type: String
     },
     social: {
         youtube: {
-            type: string
+            type: String
         },
         twitter: {
-            type: string
+            type: String
         },
         instagram: {
-            type: string
+            type: String
         },
         facebook: {
-            type: string
+            type: String
         }
     },
     date: {
