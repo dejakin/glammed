@@ -16,7 +16,7 @@ router.post('/', [
     check('email', 'Please provide a valid email address').isEmail(),
     check('password', 'Please enter a password with 8 or more characters').isLength({ min: 8 })
 ], async (req, res) => {
-    const errors = validationResult(req)
+    const errors = validationResult(req);
     if(!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }

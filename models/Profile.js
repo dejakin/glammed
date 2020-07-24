@@ -11,7 +11,7 @@ const ProfileSchema = new mongoose.Schema({
     location: {
         type: String
     },
-    service: {
+    services: {
         type: [String],
         required: true
     },
