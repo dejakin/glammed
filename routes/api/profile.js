@@ -64,9 +64,29 @@ async (req, res) => {
     if(youtube) profileFields.social.youtube = youtube;
     if(twitter) profileFields.social.twitter = twitter;
     if(facebook) profileFields.social.facebook = facebook;
-    
-    console.log(profileFields);
-    res.send('Heya');
+
+    try {
+        let profile = await Profile.findOne({ user: req.user.id });
+
+        // Update profile if found in DB
+        if(profile) {
+            profile = await Profile.findOneAndUpdate(
+                { user: req.user.id },
+                { $set: profileFields },
+                { new: true },
+            );
+            return res.json({ profile });
+        }
+
+        // Create profile if no profile found
+        profile = new Profile(profileFields);
+        await profile.save();
+        res.json(profile);
+
+    } catch(err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
 });
 
-module.exports = router; 
+module.exports = router;  

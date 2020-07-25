@@ -3,6 +3,7 @@ const config = require('config');
 const db = config.get('mongoURI');
 
 mongoose.set('useUnifiedTopology', true);
+mongoose.set('useFindAndModify', false);
 
 const connectDB = async () => {
     try {
