@@ -49,23 +49,28 @@ async (req, res) => {
     } = req.body;
 
     // Build profile object as not all fields are mandatory (as per validation checks)
-    const profileFields = {};
-    profileFields.user = req.user.id;
-    if(bio) profileFields.bio = bio;
-    if(location)profileFields.location = location;
-    if(services) {
-        profileFields.services = services.split(',').map(service => service.trim());
-    }
-    if(email) profileFields.email = email;
-
-    // Social object creation
-    profileFields.social = {}
-    if(instagram) profileFields.social.instagram = instagram;
-    if(youtube) profileFields.social.youtube = youtube;
-    if(twitter) profileFields.social.twitter = twitter;
-    if(facebook) profileFields.social.facebook = facebook;
-
     try {
+        const profileFields = {};
+
+        const targetUser = await User.findOne({ _id: req.user.id });
+        const username = targetUser.username;
+
+        profileFields.user = req.user.id;
+        profileFields.username = username;
+        if(bio) profileFields.bio = bio;
+        if(location)profileFields.location = location;
+        if(services) {
+            profileFields.services = services.split(',').map(service => service.trim());
+        }
+        if(email) profileFields.email = email;
+
+        // Social object creation
+        profileFields.social = {}
+        if(instagram) profileFields.social.instagram = instagram;
+        if(youtube) profileFields.social.youtube = youtube;
+        if(twitter) profileFields.social.twitter = twitter;
+        if(facebook) profileFields.social.facebook = facebook;
+    
         let profile = await Profile.findOne({ user: req.user.id });
 
         // Update profile if found in DB
