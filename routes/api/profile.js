@@ -105,4 +105,22 @@ router.get('/all', async (req, res) => {
     }
 });
 
+// // GET to api/profile/user/:username. Retrieves user by username
+router.get('/user/:username', async (req, res) => {
+    try {
+        const profile = await Profile
+            .findOne({ username: req.params.username })
+            .populate('user', ['avatar']);
+
+        if(!profile){
+            res.status(400).json({ msg: 'Profile not found' });
+        }     
+
+        res.json(profile);
+    } catch(err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 module.exports = router;  
