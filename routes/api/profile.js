@@ -94,4 +94,15 @@ async (req, res) => {
     }
 });
 
+// GET to api/profile/all. Retrieves all profiles
+router.get('/all', async (req, res) => {
+    try {
+        const profiles = await Profile.find().populate('user', ['username', 'avatar']);
+        res.json(profiles);
+    } catch(err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 module.exports = router;  
