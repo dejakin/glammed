@@ -113,7 +113,7 @@ router.get('/user/:username', async (req, res) => {
             .populate('user', ['avatar']);
 
         if(!profile){
-            res.status(400).json({ msg: 'Profile not found' });
+            return res.status(400).json({ msg: 'Profile not found' });
         }     
 
         res.json(profile);
@@ -122,5 +122,20 @@ router.get('/user/:username', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
+router.delete('/', auth, async (req, res) => {
+    try {
+        // Remove user profile from database
+        await Profile.findOneAndRemove({ user: req.user.id });
+        // Remove user from database
+        await User.findOneAndRemove({ _id: req.user.id });
+
+        res.json({ msg: 'User account deleted' });
+    } catch(err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 
 module.exports = router;  
