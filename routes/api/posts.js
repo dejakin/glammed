@@ -46,7 +46,7 @@ router.get('/', auth, async (req, res) => {
     }
 }); 
 
-// GET to api/posts/:username. Finds all posts for a specific user
+// GET to api/posts/:username. Returns all posts for a specific user
 router.get('/:username', auth, async (req, res) => {
     try {
         const posts = await Post.find({ username: req.params.username }).sort({ date: -1 });
@@ -63,6 +63,30 @@ router.get('/:username', auth, async (req, res) => {
         res.json(posts);
     } catch(err) {
         console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+}); 
+
+// DELETE to /api/posts/:id. Removes a post from DB
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+
+        if(!post) {
+            return res.status(400).json({ msg: 'Post not found' });
+        }
+
+        if(post.user.toString() !== req.user.id) {
+            return res.status(401).json({ msg: 'User not authorized' })
+        }
+
+        await post.remove();
+        res.json({ msg: 'Post removed' });
+    } catch(err) {
+        console.error(err.message);
+        if(err.kind === 'ObjectId') {
+            return res.status(400).json({ msg: 'Post not found' });
+        }
         res.status(500).send('Server Error');
     }
 }); 
