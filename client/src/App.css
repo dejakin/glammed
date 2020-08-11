@@ -29,7 +29,7 @@ ul {
 }
 
 .navbar a {
-  color: #ff99cc;
+  color: #F5DBE7;
   text-decoration: none;
 }
 
@@ -44,7 +44,15 @@ ul {
 }
 
 .navbar a:hover {
-  color: #ff99cc;
+  color: #F5DBE7;
+}
+
+/* Welcome */
+
+.welcome {
+  position: relative;
+  background: url('./img/beauty2.jpg') no-repeat center center/cover;
+  height: 100vh;
 }
 
 /* Mobile */

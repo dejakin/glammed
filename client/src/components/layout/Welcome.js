@@ -2,10 +2,10 @@ import React from 'react'
 
 export const Welcome = () => {
     return (
-        <section>
+        <section className="welcome">
             <div>
-                <div>
-                    <h1>G L A M M E D</h1>
+                <div className="welcome-inner">
+                    <h1>Welcome to Glammed</h1>
                     <p>
                         Create a beautician profile - share your work and get noticed by potential customers
                     </p>
