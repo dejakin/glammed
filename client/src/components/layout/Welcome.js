@@ -5,8 +5,8 @@ export const Welcome = () => {
         <section className="welcome">
             <div className="dark-bg">
                 <div className="welcome-inner">
-                    <h1>Welcome to Glammed</h1>
-                    <p>
+                    <h1 className="x-large">Welcome to Glammed</h1>
+                    <p className="para">
                         Create a beautician profile - share your work and get noticed by potential customers
                     </p>
                     <div>
