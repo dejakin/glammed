@@ -3,7 +3,7 @@ import React from 'react'
 export const Welcome = () => {
     return (
         <section className="welcome">
-            <div>
+            <div className="dark-bg">
                 <div className="welcome-inner">
                     <h1>Welcome to Glammed</h1>
                     <p>
