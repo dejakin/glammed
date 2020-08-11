@@ -88,6 +88,37 @@ ul {
   text-align: center;
 }
 
+/* Buttons */
+
+.buttons {
+  margin-top: 1.1rem;
+}
+
+.btn1 {
+  background: #FFCCE5;
+  color: #FFF;
+}
+
+.btn2 {
+  background: #FFF;
+  color: #FFCCE5;
+}
+
+.btn1, .btn2 {
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  outline: none;
+  border-radius: 7%;
+}
+
+.btn1:hover, .btn2:hover {
+  filter: brightness(105%);
+}
+
 /* Mobile */
 @media (max-width: 700px) {
 

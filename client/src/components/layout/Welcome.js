@@ -9,9 +9,9 @@ export const Welcome = () => {
                     <p className="para">
                         Create a beautician profile - share your work and get noticed by potential customers
                     </p>
-                    <div>
-                        <a href="#">Sign Up</a>
-                        <a href="#">Login</a>
+                    <div className="buttons">
+                        <a href="#" class="btn1">SIGN UP</a>
+                        <a href="#" class="btn2">LOGIN</a>
                     </div>
                 </div>
             </div>
