@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
     return (
@@ -10,8 +11,8 @@ const Welcome = () => {
                         Create a beautician profile - share your work and get noticed by potential customers
                     </p>
                     <div className="buttons">
-                        <a href="#" class="btn1">SIGN UP</a>
-                        <a href="#" class="btn2">LOGIN</a>
+                        <Link to='/register' class="btn1">SIGN UP</Link>
+                        <Link to='/login' class="btn2">LOGIN</Link>
                     </div>
                 </div>
             </div>
