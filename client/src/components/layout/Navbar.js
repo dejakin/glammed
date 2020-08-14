@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Navbar = () => {
+const Navbar = () => {
     return (
         <nav className="navbar">
             <h1>

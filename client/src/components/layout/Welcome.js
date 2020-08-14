@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Welcome = () => {
+const Welcome = () => {
     return (
         <section className="welcome">
             <div className="dark-bg">
