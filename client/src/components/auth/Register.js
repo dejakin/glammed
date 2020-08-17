@@ -1,17 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+    const [formData, setFormData] = useState({
+        forename: '',
+        surname: '',
+        username: '',
+        email: '',
+        password: '',
+        password2: ''
+    });
+
+    const { forename, surname, email, password, password2 } = formData;
+    
     return (
         <Fragment>
             <h1 className="large">REGISTER</h1>
             <p><i className="fas fa-user"></i>Create Your Account</p>
             <form className="form" action="create-profile.html">
                 <div className="form-section">
-                    <input type="text" placeholder="First Name" name="Firstname" required />
+                    <input type="text" placeholder="First Name" name="forename" required />
                 </div>
                 <div className="form-section">
-                    <input type="text" placeholder="Last Name" name="Lastname" required />
+                    <input type="text" placeholder="Last Name" name="surname" required />
+                </div>
+                <div className="form-section">
+                    <input type="text" placeholder="Username" name="username" required />
                 </div>
                 <div className="form-section">
                     <input type="email" placeholder="Email Address" name="email" />
