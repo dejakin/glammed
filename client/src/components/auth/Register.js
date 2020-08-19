@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 const Register = () => {
 
@@ -10,17 +12,38 @@ const Register = () => {
         email: '',
         password: '',
         password2: ''
-    });
+    }); 
 
     const { forename, surname, username, email, password, password2 } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
         if(password !== password2) {
             console.log('Passwords do not match');
         } else {
-            console.log(formData);
+            const newUser = {
+                forename,
+                surname,
+                username,
+                email,
+                password
+            }
+
+            try {
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+
+                const body = JSON.stringify(newUser);
+
+                const res = await axios.post('/api/users', body, config);
+                console.log(res.data)
+            } catch(err) {
+                console.error(err.response.data);
+            }
         }
     }
 
@@ -34,7 +57,6 @@ const Register = () => {
                         type="text" 
                         placeholder="First Name" 
                         name="forename" 
-                        value={forename} 
                         onChange={onChange}
                         required />
                 </div>
@@ -43,7 +65,6 @@ const Register = () => {
                         type="text" 
                         placeholder="Last Name" 
                         name="surname" 
-                        value={surname} 
                         onChange={onChange}
                         required />
                 </div>
@@ -52,7 +73,6 @@ const Register = () => {
                         type="text" 
                         placeholder="Username" 
                         name="username" 
-                        value={username} 
                         onChange={onChange}
                         required />
                 </div>
@@ -61,7 +81,6 @@ const Register = () => {
                         type="email" 
                         placeholder="Email Address" 
                         name="email" 
-                        value={email} 
                         onChange={onChange}
                         required />
                 </div>
@@ -70,7 +89,6 @@ const Register = () => {
                         type="password"
                         placeholder="Password"
                         name="password"
-                        value={password} 
                         onChange={onChange}
                         minLength="8"
                         required
@@ -81,7 +99,6 @@ const Register = () => {
                         type="password"
                         placeholder="Confirm Password"
                         name="password2"
-                        value={password2} 
                         onChange={onChange}
                         minLength="8"
                         required
