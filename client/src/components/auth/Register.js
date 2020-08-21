@@ -23,7 +23,7 @@ const Register = () => {
         } else {
             console.log('SUCCESS');
         }
-    }
+    };
 
     return (
         <Fragment>
