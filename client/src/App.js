@@ -6,18 +6,18 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import './App.css';
 
-const App = () => 
-  <Router>
-    <Fragment>
-      <Navbar />
-      <Route exact path="/" component={Welcome} />
-      <section className="container">
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-      </section>
-     </Fragment>
-  </Router>
 
+const App = () => 
+    <Router>
+      <Fragment>
+        <Navbar />
+        <Route exact path="/" component={Welcome} />
+        <section className="container">
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+        </section>
+      </Fragment>
+    </Router>
 
 export default App;
 
