@@ -11,8 +11,8 @@ const Welcome = () => {
                         Create a beautician profile - share your work and get noticed by potential customers
                     </p>
                     <div className="buttons">
-                        <Link to='/register' class="btn1">SIGN UP</Link>
-                        <Link to='/login' class="btn2">LOGIN</Link>
+                        <Link to='/register' className="btn1">SIGN UP</Link>
+                        <Link to='/login' className="btn2">LOGIN</Link>
                     </div>
                 </div>
             </div>
