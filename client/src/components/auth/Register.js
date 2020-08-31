@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 
 
-const Register = (props) => {
+const Register = props => {
 
     const [formData, setFormData] = useState({
         forename: '',
@@ -94,3 +94,4 @@ const Register = (props) => {
 }
 
 export default connect(null, { setAlert })(Register);
+
