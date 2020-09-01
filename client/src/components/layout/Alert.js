@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Alert = (props) => {
-    if(props.alerts !== null && props.alerts > 0) {
+    if(props.alerts !== null && props.alerts.length > 0) {
         return props.alerts.map(alert => (
             <div key={alert.id}>
                 { alert.msg }
