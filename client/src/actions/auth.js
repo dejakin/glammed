@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 import { REGISTER_SUCCESS } from './types';
+import { REGISTER_FAIL } from './types';
 
 export const register = ({ forename, surname, username, email, password }) => async dispatch => {
     const config = {
@@ -24,6 +25,8 @@ export const register = ({ forename, surname, username, email, password }) => as
         if (errors) {
             errors.forEach(error => dispatch(setAlert(error.msg)))
         }
-        console.log(err);
+        dispatch({
+           type: REGISTER_FAIL
+        });
     }
 }
