@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 
@@ -17,6 +17,11 @@ const Login = (props) => {
         e.preventDefault();
         props.login({email, password});
     };
+
+    // Redirect if logged in
+    if(props.isAuthenticated) {
+        return <Redirect to="/dashboard" />
+    }
 
     return (
         <Fragment>
@@ -51,4 +56,9 @@ const Login = (props) => {
     )
 }
 
-export default connect(null, { login })(Login);
+// Retrieve auth slice of store and assign it to a prop
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { login })(Login);

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 
@@ -27,6 +27,11 @@ const Register = props => {
             props.register({forename, surname, username, email, password});
         }
     };
+
+    // Redirect if logged in
+    if(props.isAuthenticated) {
+        return <Redirect to="/dashboard" />
+    }
 
     return (
         <Fragment>
@@ -94,5 +99,10 @@ const Register = props => {
     )
 }
 
-export default connect(null, { setAlert, register })(Register);
+// Retrieve auth slice of store and assign it to a prop
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
 
