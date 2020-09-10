@@ -8,7 +8,7 @@ import {
 // Get logged in user's profile
 export const getCurrentProfile = () => async dispatch => {
     try {
-        const res = await axios.get('/api/profile/me');
+        const res = await axios.get('/api/profile/myprofile');
 
         dispatch({
             type: GET_PROFILE,
