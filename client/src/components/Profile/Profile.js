@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import { connect } from 'react-redux';
+import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
 
-const Profile = ({ getCurrentProfile, auth, profile }) => {
+const Profile = ({ getCurrentProfile, auth, profile: { profile, loading } }) => {
     useEffect(() => {
         getCurrentProfile();
     }, []);
 
-    return <div>Profile</div>
+    return loading && profile === null ? <Spinner /> : <Fragment>test</Fragment>;
 }
 
 const mapStateToProps = state => ({
