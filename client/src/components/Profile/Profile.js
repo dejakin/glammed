@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 
-const Dashboard = ({ getCurrentProfile, auth, profile }) => {
+const Profile = ({ getCurrentProfile, auth, profile }) => {
     useEffect(() => {
         getCurrentProfile();
     }, []);
 
-    return <div>Dashboard</div>
+    return <div>Profile</div>
 }
 
 const mapStateToProps = state => ({
@@ -15,4 +15,4 @@ const mapStateToProps = state => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile })(Profile);

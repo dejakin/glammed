@@ -30,7 +30,7 @@ const Register = props => {
 
     // Redirect if logged in
     if(props.isAuthenticated) {
-        return <Redirect to="/dashboard" />
+        return <Redirect to="/profile" />
     }
 
     return (

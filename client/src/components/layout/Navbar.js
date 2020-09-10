@@ -6,6 +6,7 @@ import { logout } from '../../actions/auth';
 const Navbar = (props) => {
 const authLinks = (
     <ul>
+        <li><Link to='/profile'>Profile</Link></li>
         <li><a onClick={props.logout} href='#!'>Logout</a></li>
     </ul>
 );

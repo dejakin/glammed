@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Welcome = () => {
+const Welcome = (props) => {
+    if(props.isAuthenticated) {
+        return <Redirect to="/profile" />
+    }
+
     return (
         <section className="welcome">
             <div className="dark-bg">
@@ -20,4 +25,8 @@ const Welcome = () => {
     )
 }
 
-export default Welcome;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps)(Welcome);
