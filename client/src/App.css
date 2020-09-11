@@ -40,6 +40,15 @@ ul {
   font-size: 1.5rem;
 }
 
+.para2 {
+  margin-bottom: 0.7rem;
+  font-size: 1.3rem;
+}
+
+.para3 {
+  margin-bottom: 0.7rem;
+}
+
 .fa-user {
   color: #F5DBE7;
   margin-right: 0.5rem;

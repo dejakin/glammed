@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Spinner = () => (
     <div class="loader">Loading...</div>
