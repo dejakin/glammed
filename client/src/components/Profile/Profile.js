@@ -9,6 +9,8 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
         getCurrentProfile();
     }, []);
 
+    /* If getCurrentProfile is yet to return, the spinner will show.
+    Once returned, welcome message with username will show */
     return loading && profile === null ? <Spinner /> : <Fragment>
         <h1 className="large">PROFILE</h1>
         <p className="para2">
@@ -18,7 +20,7 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
             <Fragment>Profile Section</Fragment>
         ) : (
             <Fragment>
-                <p className="para3">You have not yet created a profile. Please click the button below to get started.</p>
+                <p className="para3">You have created a profile yet. Please click the button below to get started.</p>
                 <Link to='/create-profile' className='btn1'>
                     Create Profile
                 </Link>
