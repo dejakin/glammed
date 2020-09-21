@@ -128,11 +128,13 @@ ul {
 .btn1 {
   background: #FFCCE5;
   color: #FFF;
+  text-decoration: none;
 }
 
 .btn2 {
   background: #FFF;
   color: #FFCCE5;
+  text-decoration: none;
 }
 
 .btn1, .btn2 {

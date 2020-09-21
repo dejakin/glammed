@@ -2,6 +2,7 @@ import React, { useEffect, Fragment } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
+import ProfileEditButton from './ProfileEditButton';
 import { getCurrentProfile } from '../../actions/profile';
 
 const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
@@ -17,7 +18,9 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
             <i className="fas fa-user"></i> Welcome <b>{ user && user.username }</b>!
         </p>
         { profile !== null ? (
-            <Fragment>Profile Section</Fragment>
+            <Fragment>
+                <ProfileEditButton />
+            </Fragment>
         ) : (
             <Fragment>
                 <p className="para3">You have created a profile yet. Please click the button below to get started.</p>
