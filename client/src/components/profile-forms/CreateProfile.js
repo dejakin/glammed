@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createProfile } from '../../actions/profile';
 
-const CreateProfile = () => {
+const CreateProfile = ({ createProfile, history }) => {
 const [formData, setFormData] = useState({
     bio: '',
     location: '',
@@ -25,6 +27,10 @@ const {
 } = formData
 
 const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
+const onSubmit = e => {
+    e.preventDefault();
+    createProfile(formData, history)
+}
 
     return (
         <Fragment>
@@ -34,9 +40,9 @@ const onChange = e => setFormData({...formData, [e.target.name]: e.target.value}
             <p className="lead">
                 <i className="fas fa-user para3"></i> Let's find out more about you!
             </p>
-            <form className="form">
+            <form className="form" onSubmit={onSubmit}>
                 <div className="form-group">
-                    <textarea placeholder="Bio" name="bio" className="textarea"></textarea>
+                    <textarea placeholder="Bio" name="bio" className="textarea" onChange={onChange}></textarea>
                 </div>
                 <div className="form-group">
                     <input type="text" placeholder="Location" name="location" onChange={onChange} />
@@ -72,4 +78,4 @@ const onChange = e => setFormData({...formData, [e.target.name]: e.target.value}
     )
 }
 
-export default CreateProfile;
+export default connect(null, { createProfile })(withRouter(CreateProfile));
