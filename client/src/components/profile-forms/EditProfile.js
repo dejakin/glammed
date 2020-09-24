@@ -97,6 +97,9 @@ const onSubmit = e => {
                 </div>
                 <input type="submit" className="btn1" />
             </form>
+            <div className="delete">
+                Delete Account
+            </div>
         </Fragment>
     )
 }

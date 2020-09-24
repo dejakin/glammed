@@ -137,7 +137,14 @@ ul {
   text-decoration: none;
 }
 
-.btn1, .btn2 {
+.delete {
+  background: #FA1616;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn1, .btn2, .delete {
   display: inline-block;
   padding: 0.4rem 1.3rem;
   border: none;
