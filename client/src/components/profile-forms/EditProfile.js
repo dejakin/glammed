@@ -1,12 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../actions/profile';
+import { createProfile, getCurrentProfile, deleteAccount } from '../../actions/profile';
 
 const EditProfile = ({ 
     profile: { profile, loading }, 
     createProfile, 
-    getCurrentProfile, 
+    getCurrentProfile,
+    deleteAccount, 
     history 
 }) => {
 const [formData, setFormData] = useState({
@@ -97,9 +98,9 @@ const onSubmit = e => {
                 </div>
                 <input type="submit" className="btn1" />
             </form>
-            <div className="delete">
+            <button className="delete" onClick={deleteAccount}>
                 Delete Account
-            </div>
+            </button>
         </Fragment>
     )
 }
@@ -108,4 +109,4 @@ const mapStateToProps = state => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(EditProfile));
+export default connect(mapStateToProps, { createProfile, getCurrentProfile, deleteAccount })(withRouter(EditProfile));
