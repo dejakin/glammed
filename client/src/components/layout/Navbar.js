@@ -6,6 +6,7 @@ import { logout } from '../../actions/auth';
 const Navbar = (props) => {
 const authLinks = (
     <ul>
+        <li><Link to='/beauticians'>Beauticians</Link></li>
         <li><Link to='/profile'>Profile</Link></li>
         <li><a onClick={props.logout} href='#!'>Logout</a></li>
     </ul>
@@ -13,7 +14,7 @@ const authLinks = (
 
 const guestLinks = (
     <ul>
-        <li><Link to='/profiles'>Beauticians</Link></li>
+        <li><Link to='/beauticians'>Beauticians</Link></li>
         <li><Link to='/register'>Register</Link></li>
         <li><Link to='/login'>Login</Link></li>
     </ul>
