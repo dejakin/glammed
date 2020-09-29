@@ -6,6 +6,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Alert from './components/layout/Alert';
 import Profile from './components/Profile/Profile';
+import SingleProfile from './components/Profile/SingleProfile';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
@@ -38,6 +39,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/beauticians" component={Profiles} />
+            <Route exact path="/profile/:id" component={SingleProfile} />
             <PrivateRoute exact path="/profile" component={Profile} />
             <PrivateRoute exact path="/create-profile" component={CreateProfile} />
             <PrivateRoute exact path="/edit-profile" component={EditProfile} />

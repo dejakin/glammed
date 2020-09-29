@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 const Profiles = (props) => {
     useEffect(() => {
         props.getProfiles();
-    }, [props]);
+    }, []);
 
     return <Fragment>
         { props.loading ? <Spinner /> : <Fragment>

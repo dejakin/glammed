@@ -8,7 +8,7 @@ import { getCurrentProfile } from '../../actions/profile';
 const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
     useEffect(() => {
         getCurrentProfile();
-    }, [getCurrentProfile]);
+    }, []);
 
     /* If getCurrentProfile is yet to return, the spinner will show.
     Once returned, welcome message with username will show */
