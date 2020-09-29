@@ -137,6 +137,13 @@ ul {
   text-decoration: none;
 }
 
+.profile-button {
+  background: #FFCCE5;
+  color: #FFF;
+  text-decoration: none;
+  margin-top: 0.6rem;
+}
+
 .delete {
   background: #FA1616;
   color: #FFF;
@@ -144,7 +151,7 @@ ul {
   font-weight: bold;
 }
 
-.btn1, .btn2, .delete {
+.btn1, .btn2, .delete, .profile-button {
   display: inline-block;
   padding: 0.4rem 1.3rem;
   border: none;
@@ -287,6 +294,26 @@ button {
 }
 .form .social-input i.fa-linkedin {
   color: #0077b5;
+}
+
+/* Profile */
+
+.profile {
+  width: 70%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr;
+  align-items: center;
+  grid-gap: 0.5rem;
+  padding: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  border: 1px solid black;
+}
+
+.round-img {
+  border-radius: 50%;
 }
 
 /* Mobile */
