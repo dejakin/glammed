@@ -1,17 +1,24 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
+import { Link } from 'react-router-dom';
 import { getProfileByUsername } from '../../actions/profile';
 
-const SingleProfile = (props) => {
+const SingleProfile = ({ profile: { profile, loading }, auth, match, getProfileByUsername }) => {
     useEffect(() => {
-        props.getProfileByUsername(props.match.params.id);
+        getProfileByUsername(match.params.id);
     }, []);
 
     return (
-        <div>
-            profile
-        </div>
+        <Fragment>
+            {loading ? <Spinner /> : profile ? 
+            <Fragment>
+                <Link to="/beauticians" className="btn1">Back To Profiles</Link>
+            </Fragment> : 
+            <Fragment>
+                This user does not exist
+            </Fragment>}
+        </Fragment>
     )
 }
 
