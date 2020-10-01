@@ -14,6 +14,7 @@ const SingleProfile = ({ profile: { profile, loading }, auth, match, getProfileB
             {loading ? <Spinner /> : profile ? 
             <Fragment>
                 <Link to="/beauticians" className="btn1">Back To Profiles</Link>
+                {auth.isAuthenticated && auth.loading === false && auth.user.username === profile.username && <Link to="/edit-profile" className="btn1">Edit Profile</Link>}
             </Fragment> : 
             <Fragment>
                 This user does not exist
