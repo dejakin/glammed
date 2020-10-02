@@ -292,8 +292,21 @@ button {
 .form .social-input i.fa-youtube {
   color: #c4302b;
 }
-.form .social-input i.fa-linkedin {
-  color: #0077b5;
+
+.icons i.fa-youtube {
+  color: #c4302b;
+}
+
+.icons i.fa-instagram {
+  color: #3f729b;
+}
+
+.icons i.fa-facebook {
+  color: #3b5998;
+}
+
+.icons i.fa-twitter {
+  color: #38a1f3;
 }
 
 /* Profile */
@@ -312,8 +325,29 @@ button {
   border: 1px solid black;
 }
 
+.profile-header {
+  grid-area: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .round-img {
   border-radius: 50%;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.fab {
+  margin-right: 1rem;
 }
 
 /* Mobile */
