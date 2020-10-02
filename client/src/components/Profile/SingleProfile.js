@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
+import Header from './Header';
 import { Link } from 'react-router-dom';
 import { getProfileByUsername } from '../../actions/profile';
 
@@ -14,7 +15,13 @@ const SingleProfile = ({ profile: { profile, loading }, auth, match, getProfileB
             {loading ? <Spinner /> : profile ? 
             <Fragment>
                 <Link to="/beauticians" className="btn1">Back To Profiles</Link>
-                {auth.isAuthenticated && auth.loading === false && auth.user.username === profile.username && <Link to="/edit-profile" className="btn1">Edit Profile</Link>}
+                {auth.isAuthenticated && 
+                    auth.loading === false && 
+                    auth.user.username === profile.username && 
+                    <Link to="/edit-profile" className="btn1">Edit Profile</Link>}
+                <div class="profile-grid my-1">
+                    <Header profile={profile}/>
+                </div>
             </Fragment> : 
             <Fragment>
                 This user does not exist
