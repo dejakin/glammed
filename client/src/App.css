@@ -49,6 +49,10 @@ ul {
   margin-bottom: 0.7rem;
 }
 
+.para4 {
+  margin-top: 8px;
+}
+
 .fa-user {
   color: #F5DBE7;
   margin-right: 0.5rem;
@@ -342,12 +346,16 @@ button {
   padding: 2rem;
 }
 
-.my-1 {
-  margin: 1rem 0;
-}
+/* .my-1 {
+  margin: 1px 0;
+} */
 
 .fab {
-  margin-right: 1rem;
+  margin: 0 0.4rem;
+}
+
+h1 {
+  color: #FFCCE5;
 }
 
 /* Mobile */

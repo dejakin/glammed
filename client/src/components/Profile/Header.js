@@ -5,7 +5,8 @@ const Header = ({ profile: {
     username,
     location,
     bio,
-    social
+    social,
+    services
 } }) => {
     return (
         <div className="profile-header bg-primary p-2">
@@ -14,9 +15,12 @@ const Header = ({ profile: {
                 src={user.avatar}
                 alt=""/>
             <h1>{username}</h1>
-            <p>{bio}</p>
-            <p>{location}</p>
-            <div className="icons my-1">
+            <p className="para4"><b>Bio</b>: {bio}</p>
+            <p className="para4"><b>Location</b>: {location}</p>
+            <p className="para4"><b>Services</b>:</p>
+            {services.map(service => <p>{service}</p>)}
+            <p className="para4"><b>Social Links</b></p>
+            <div className="icons para4">
                 {social.twitter && 
                 <a href={social.twitter} target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-twitter fa-2x"></i>
