@@ -13,7 +13,7 @@ const Welcome = (props) => {
                 <div className="welcome-inner">
                     <h1 className="x-large">Welcome to Glammed</h1>
                     <p className="para">
-                        Create a beautician profile - share your work and get noticed by potential customers
+                        Create a beautician profile - share your work and get noticed by potential customers and students within the Southampton area
                     </p>
                     <div className="buttons">
                         <Link to='/register' className="btn1">SIGN UP</Link>

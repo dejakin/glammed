@@ -59,7 +59,15 @@ ul {
   margin-bottom: 0.2rem;
 }
 
+.alert-box {
+  font-weight: bold;
+  color: red;
+  margin-bottom: 0.7rem;
+}
 
+.white-text {
+  color: #fff;
+}
 
 /* Navbar */
 .navbar {
@@ -354,7 +362,7 @@ button {
   margin: 0 0.4rem;
 }
 
-h1 {
+.username {
   color: #FFCCE5;
 }
 

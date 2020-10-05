@@ -14,7 +14,7 @@ const Header = ({ profile: {
                 className="round-img my-1"
                 src={user.avatar}
                 alt=""/>
-            <h1>{username}</h1>
+            <h1 className="username">{username}</h1>
             <p className="para4"><b>Bio</b>: {bio}</p>
             <p className="para4"><b>Location</b>: {location}</p>
             <p className="para4"><b>Services</b>:</p>
