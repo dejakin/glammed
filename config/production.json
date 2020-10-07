@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://dejakin:Qpalzm123@glammed.ihhel.mongodb.net/Glammed?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
+}

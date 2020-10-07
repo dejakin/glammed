@@ -23,7 +23,7 @@ const guestLinks = (
     return (
         <nav className="navbar">
             <h1>
-                <Link to='/'> G L A M M E D - <span className="white-text">Southampton Uni</span></Link>
+                <Link to='/'> G L A M M E D </Link>
             </h1>
             { !props.loading ? (<Fragment>{ props.isAuthenticated ? authLinks : guestLinks }</Fragment>) : null }
         </nav>

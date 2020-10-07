@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
 
@@ -14,17 +14,6 @@ const [formData, setFormData] = useState({
     instagram: '',
     facebook: '',
 });
-
-const {
-    bio,
-    location,
-    services,
-    email,
-    youtube,
-    twitter,
-    instagram,
-    facebook,
-} = formData
 
 const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
 const onSubmit = e => {
