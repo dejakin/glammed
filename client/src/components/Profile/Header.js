@@ -9,7 +9,7 @@ const Header = ({ profile: {
     services
 } }) => {
     return (
-        <div className="profile-header bg-primary p-2">
+        <div className="profile-header">
             <img
                 className="round-img my-1"
                 src={user.avatar}

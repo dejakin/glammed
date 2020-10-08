@@ -13,14 +13,13 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
     /* If getCurrentProfile is yet to return, the spinner will show.
     Once returned, welcome message with username will show */
     return loading && profile === null ? <Spinner /> : <Fragment>
-        <h1 className="large">PROFILE</h1>
         <p className="para2">
             <i className="fas fa-user"></i> Welcome <b>{ user && user.username }</b>!
         </p>
         { profile !== null ? (
             <Fragment>
                 <ProfileEditButton />
-                <div className="profile-header bg-primary p-2">
+                <div className="profile-header">
                     <img
                         className="round-img my-1"
                         src={user.avatar}
