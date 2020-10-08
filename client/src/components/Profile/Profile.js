@@ -14,7 +14,7 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
     Once returned, welcome message with username will show */
     return loading && profile === null ? <Spinner /> : <Fragment>
         <p className="para2">
-            <i className="fas fa-user"></i> Welcome <b>{ user && user.username }</b>!
+            <i className="fas fa-user"></i> Welcome to your profile, <b>{ user && user.username }</b>!
         </p>
         { profile !== null ? (
             <Fragment>
@@ -22,7 +22,7 @@ const Profile = ({ getCurrentProfile, auth: { user }, profile: { profile, loadin
                 <div className="profile-header">
                     <img
                         className="round-img my-1"
-                        src={user.avatar}
+                        src={profile.user.avatar}
                         alt=""/>
                     <h1 className="username">{profile.username}</h1>
                     <p className="para4"><b>Bio</b>: {profile.bio}</p>
