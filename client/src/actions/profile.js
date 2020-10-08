@@ -86,6 +86,8 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             history.push('/profile');
         }
 
+        dispatch({type: CLEAR_PROFILE});
+
     } catch(err) {
         const errors = err.response.data.errors;
         if (errors) {
