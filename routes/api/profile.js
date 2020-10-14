@@ -66,10 +66,39 @@ async (req, res) => {
 
         // Social object creation
         profileFields.social = {}
-        if(instagram) profileFields.social.instagram = instagram;
-        if(youtube) profileFields.social.youtube = youtube;
-        if(twitter) profileFields.social.twitter = twitter;
-        if(facebook) profileFields.social.facebook = facebook;
+        if(instagram) {
+            if(instagram.includes('http')) {
+                profileFields.social.instagram = instagram;
+            } else if (instagram.includes('.com') && !instagram.includes('http')) {
+                profileFields.social.instagram = `https://${instagram}`;
+            } else {
+                profileFields.social.instagram = `https://instagram.com/${instagram}`
+            }
+        } 
+        if(twitter) {
+            if(twitter.includes('http')) {
+                profileFields.social.twitter = twitter;
+            } else if (twitter.includes('.com') && !twitter.includes('http')) {
+                profileFields.social.twitter = `https://${twitter}`;
+            } else {
+                profileFields.social.twitter = `https://twitter.com/${twitter}`
+            }
+        } 
+        if(youtube) {
+            if(youtube.includes('http')) {
+                profileFields.social.youtube = youtube;
+            } else {
+                profileFields.social.youtube = `https://${youtube}`
+            }
+        }
+        
+        if(facebook) {
+            if(facebook.includes('http')) {
+                profileFields.social.facebook = facebook;
+            } else {
+                profileFields.social.facebook = `https://${facebook}`
+            }
+        }
     
         let profile = await Profile.findOne({ user: req.user.id });
 
