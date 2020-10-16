@@ -37,6 +37,6 @@ To run this project, you will only need Node.js and a node global package manage
 
 The 'npm install' commands will be used to install all of the dependencies required by the server and client, as defined in the two package.json files.
 
-## Runing the project (from root) 
+## Running the project (from root) 
 
     $ npm run dev (both Express and React servers are run simutaneously. Possible through dev-dependency 'concurrently')
